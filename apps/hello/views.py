@@ -7,3 +7,8 @@ from apps.hello.models import Contact
 def home(request):
 	contact = Contact.objects.get(pk=1)
 	return {'contact': contact}
+	
+@render_to('Contact/requests.html')
+def requests(request):
+	requestinfo = RequestInfo.objects.all()[:10]
+	return {'requests':requestinfo}
