@@ -1,9 +1,12 @@
+from django.core.urlresolvers import reverse
 from django.test import TestCase
+from django.test.client import Client
 
-# Create your tests here.
-
-
-class SomeTests(TestCase):
-    def test_math(self):
-        "put docstrings in your tests"
-        assert(2 + 2 == 5)
+class HttpTest(TestCase):
+	def test_home(self):
+		c = Client()
+		response = c.get(reverse('home'))
+		self.assertEqual(response.status_code, 200)
+		self.assertContains(response, '42 Coffee Cups Test Assingment')
+		self.assertContains(response, 'Email: albertlee@yandex.ru')
+		self.assertTemplateUsed(response, 'hello/home.html',)

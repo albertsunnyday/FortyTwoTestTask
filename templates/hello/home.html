@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}42 Coffee Cups Test Assignment{% endblock %}
+{% block extra_head %}
+<link rel="stylesheet" href='{% static "css/screen.css" %}' />
+{% endblock %}
+{% block content %}
+<h2>42 Coffee Cups Test Assingment</h2>
+<div class="contacts">
+	<div class="leftcontacts">
+		<p>Name: {{ contact.first_name }}</p>
+		<p>Last Name: {{ contact.last_name }}</p>
+		<p>Date of birth: {{ contact.date_of_birth }}</p>
+		<p>Bio: {{ contact.bio }}</p>
+	</div>
+	<div class="rightcontacts">
+		<p>Contacts</p>
+		<p>Email: {{ contact.email }}</p>
+		<p>Jabber: {{ contact.jabber }}</p>
+		<p>Skype: {{ contact.skype }}</p>
+		<p>Other contacts: {{ contact.other_contacts }}</p>
+	</div>
+</div>
+
+{% endblock %}
