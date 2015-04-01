@@ -15,7 +15,7 @@ class HttpTest(TestCase):
         self.assertTemplateUsed(response, 'hello/home.html',)
 
     def test_middleware(self):
-        """ method for testing main page"""
+        """ method for testing middleware"""
         self.client.get(reverse('home'))
         self.client.get(reverse('requests'))
         req_count = RequestInfo.objects.all().count()
