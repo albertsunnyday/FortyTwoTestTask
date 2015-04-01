@@ -17,3 +17,12 @@ class RequestInfo(models.Model):
 	method = models.CharField(max_length=5)
 	path = models.CharField(max_length=70)
 	time = models.DateTimeField(auto_now_add=True)
+
+	def test_middleware(self):
+		self.gr = GetRequestsToDB()
+		self.request = MagicMock()
+		self.request.META['REQUEST_METHOD']='GET'
+		self.request.path='/'
+		self.assertEqual(self.gr.process_request(self.request),None)
+		req_count = RequestInfo.objects.all().count()
+		self.assertEqual(req_count,1)
