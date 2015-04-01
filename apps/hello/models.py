@@ -12,3 +12,8 @@ class Contact(models.Model):
 
 	def __unicode__(self):
 		return self.email
+
+class RequestInfo(models.Model):
+	method = models.CharField(max_length=5)
+	path = models.CharField(max_length=70)
+	time = models.DateTimeField(auto_now_add=True)
