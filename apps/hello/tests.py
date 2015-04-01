@@ -1,6 +1,9 @@
+
 from django.core.urlresolvers import reverse
 from django.test import TestCase
 from django.test.client import Client
+from middleware import GetRequestsToDB
+from models import RequestInfo
 
 class HttpTest(TestCase):
 	def test_home(self):
