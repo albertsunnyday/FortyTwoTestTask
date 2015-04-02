@@ -1,4 +1,21 @@
-[
+[{
+"pk": 1,
+"model": "auth.user",
+"fields": {
+"username": "admin",
+"first_name": "",
+"last_name": "",
+"is_active": true,
+"is_superuser": true,
+"is_staff": true,
+"last_login": "2015-03-24T20:21:47.692Z",
+"groups": [],
+"user_permissions": [],
+"password": "pbkdf2_sha256$12000$fuZCdUwEDPQP$6xaleshgYHcvv0G4Vc3Wvis2C99tXHyeJfFF96EGZ7g=",
+"email": "admin@admin.com",
+"date_joined": "2015-03-24T20:21:47.692Z"
+}
+},
 {"pk": 1, 
 "model": "hello.contact", 
 "fields": {
