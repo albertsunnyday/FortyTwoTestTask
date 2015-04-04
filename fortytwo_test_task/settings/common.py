@@ -14,7 +14,7 @@ import sys
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(__file__))
 BASE_DIR = os.path.dirname(PROJECT_DIR)
-
+SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 # App/Library Paths
 sys.path.append(os.path.join(BASE_DIR, 'apps'))
 
@@ -31,6 +31,11 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
 
+MEDIA_ROOT = os.path.join(SITE_ROOT, 'media')
+MEDIA_URL = '/media/'
+STATIC_ROOT = os.path.join(SITE_ROOT, 'static')
+STATIC_URL = '/static/'
+ADMIN_MEDIA_PREFIX = '/media/admin/'
 
 # Application definition
 
