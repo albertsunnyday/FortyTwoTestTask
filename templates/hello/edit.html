@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% block extra_head %}
+{{ form.media }}
+{% endblock %}
+{% block content %}
+<script>
+$.(function(){
+	var form = $('#ContactForm');
+	form.on("submit",function(){
+		$('#id_send').attr('disabled',true);
+		$("#status").prepend('<span>Saving changes...</span>');
+		$.ajax({
+			url:form.action, 
+			data:form.serializeArray(),
+			type="POST",
+			success:function(){
+				alert('form saved!');
+				window.location = '/'
+			}
+		})
+	});
+
+});
+	
+</script>
+<div id="status"></div>
+<form id="ContactForm" enctype="multipart/form-data" action="" method="post">
+{% csrf_token %}
+<div class="contacts">
+	<div class="leftcontacts">
+		<p>Name: {{ form.first_name }}</p>
+		<p>Last Name: {{ form.last_name }}</p>
+		<p>Date of birth: {{ form.date_of_birth }}</p>
+		<p>Bio: {{ form.bio }}</p>
+	</div>
+	<div class="rightcontacts">
+		<p>Contacts</p>
+		<p>Email: {{ form.email }}</p>
+		<p>Jabber: {{ form.jabber }}</p>
+		<p>Skype: {{ form.skype }}</p>
+		<p>Other contacts: {{ form.other_contacts }}</p>
+	</div>
+</div>
+
+{{ field }}
+<div class="errorfield">{{ field.errors }}</div>
+{% if field.name == 'photo' %}
+{% if field.value %}
+<img src="{{ MEDIA_URL }}{{ field.value }}" alt="Photo" />
+{% endif %}
+</div>
+
+<div>
+
+
+{% endif %}
+
+</div>
+
+
+
+</div>
+<p id="send">
+<input type="submit" value="Save" id="id_send"/>
+<a href='/'>Cancel</a>
+</p>
+</form>
+{% endblock %}
