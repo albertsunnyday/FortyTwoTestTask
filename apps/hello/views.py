@@ -15,16 +15,3 @@ def requests(request):
     requestinfo = RequestInfo.objects.all()[:10]
     return {'requests': requestinfo}
 
-
-def fixtures(request):
-    contact = Contact()
-    contact.email = 'albertlee@yandex.ru'
-    contact.first_name = 'albert'
-    contact.last_name = 'lee'
-    contact.jabber = 'jabber_id'
-    contact.date_of_birth = '2015-04-02'
-    contact.save()
-    user = User.objects.create_user('admin', 'admin@thebeatles.com', 'admin')
-    user.is_superuser = True
-    user.is_staff = True
-    user.save()
