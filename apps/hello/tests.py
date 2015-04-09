@@ -14,6 +14,8 @@ class HttpTest(TestCase):
         self.assertContains(response, 'Email: albertlee@yandex.ru')
         self.assertTemplateUsed(response, 'hello/home.html',)
 
+
+class Middleware(TestCase):
     def test_middleware(self):
         """ method for testing middleware"""
         self.client.get(reverse('home'))
