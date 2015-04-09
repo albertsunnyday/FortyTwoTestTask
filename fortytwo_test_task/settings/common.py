@@ -134,3 +134,39 @@ TEMPLATE_DIRS = (
 
 # Turn off south during test
 SOUTH_TESTS_MIGRATE = False
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'formatters': {
+        'verbose': {
+            'format': "[%(asctime)s] %(levelname)s \
+                       [%(name)s:%(lineno)s] %(message)s",
+            'datefmt': "%d/%b/%Y %H:%M:%S"
+        },
+    },
+    'handlers': {
+        'debug': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'log_debug.txt'),
+            'formatter': 'verbose'
+        },
+        'info': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'log_info.txt'),
+            'formatter': 'verbose'
+        }
+    },
+    'loggers': {
+        'hello.info': {
+            'handlers': ['info'],
+            'level': 'INFO'
+        },
+        'hello.debug': {
+            'handlers': ['debug'],
+            'level': 'DEBUG'
+        },
+    }
+}

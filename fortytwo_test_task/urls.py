@@ -12,7 +12,6 @@ urlpatterns = patterns(
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'apps.hello.views.home', name='home'),
-    
     url(r'^requests/', 'apps.hello.views.requests', name='requests'),
 )
 
