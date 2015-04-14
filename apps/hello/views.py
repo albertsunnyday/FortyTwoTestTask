@@ -1,6 +1,7 @@
 import logging
 from annoying.decorators import render_to
 from apps.hello.models import Contact, RequestInfo
+from django.contrib.auth.models import User
 
 logger_info = logging.getLogger('contact.info')
 logger_debug = logging.getLogger('contact.debug')
