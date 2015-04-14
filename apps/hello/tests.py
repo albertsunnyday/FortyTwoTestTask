@@ -4,7 +4,7 @@ from django.test.client import Client
 from models import RequestInfo, Contact
 
 
-class HttpTest(TestCase):
+class ContactsPageTest(TestCase):
 
     def set_up(self):
         self.contact1 = Contact.objects.create(
@@ -48,7 +48,7 @@ class HttpTest(TestCase):
         self.assertTemplateUsed(response, 'hello/home.html',)
 
 
-class Middleware(TestCase):
+class MiddlewareTest(TestCase):
     def test_middleware(self):
         """ method for testing middleware"""
         self.client.get(reverse('home'))
