@@ -44,7 +44,14 @@ class ContactsPageTest(TestCase):
         response = c.get(reverse('home'))
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, '42 Coffee Cups Test Assingment')
+        self.assertContains(response, 'Name: Albert')
+        self.assertContains(response, 'Last Name: Lee')
+        self.assertContains(response, 'Date of birth: Dec. 22, 1989')
+        self.assertContains(response, 'Bio: some bio')
         self.assertContains(response, 'Email: albertlee@yandex.ru')
+        self.assertContains(response, 'Jabber: adsa')
+        self.assertContains(response, 'Skype: albertlee_1989')
+        self.assertContains(response, 'Other contacts: other')
         self.assertTemplateUsed(response, 'hello/home.html',)
 
 
